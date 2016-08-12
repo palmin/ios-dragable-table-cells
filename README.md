@@ -27,5 +27,4 @@ times.
 ````
 
 This is used in [Working Copy](https://WorkingCopyApp.com/) to move around files in Git repositories.
-
-You can reach me as [@palmin](https://twitter.com/palmin) on Twitter
+You can reach me as [@palmin](https://twitter.com/palmin) on Twitter.
