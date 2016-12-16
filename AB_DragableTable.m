@@ -131,7 +131,7 @@ const NSTimeInterval backRepeatDelay = enterDelay;
         markView = [[UIView alloc] initWithFrame:view.frame];
         markView.translatesAutoresizingMaskIntoConstraints = NO;
         markView.userInteractionEnabled = NO;
-        markView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+        markView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.05];
         markView.alpha = 0;
         [view.superview addSubview:markView];
     }
@@ -141,6 +141,7 @@ const NSTimeInterval backRepeatDelay = enterDelay;
         draggingView.transform = CGAffineTransformMakeScale(0.95, 0.95);
         draggingView.center = point;
         markView.alpha = 1;
+        view.alpha = 0;
         
         viewController.navigationItem.title = viewController.dragTitle;
         viewController.navigationItem.rightBarButtonItems = nil;
@@ -190,6 +191,7 @@ const NSTimeInterval backRepeatDelay = enterDelay;
         [UIView animateWithDuration:.1 animations:^{
             draggingView.alpha = 0;
             markView.alpha = 0;
+            view.alpha = 1;
             
         } completion:^(BOOL finished) {
             viewController.view.userInteractionEnabled = YES;
