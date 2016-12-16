@@ -15,7 +15,6 @@
 		BED998B01AA0A86900F7FE5D /* SmudgyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BED998AF1AA0A86900F7FE5D /* SmudgyWindow.m */; };
 		BEE20F161D5DC31F00A56B75 /* AB_DragableTable.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE20F131D5DC31F00A56B75 /* AB_DragableTable.m */; };
 		BEE20F171D5DC31F00A56B75 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BEE20F141D5DC31F00A56B75 /* LICENSE */; };
-		BEE20F181D5DC31F00A56B75 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BEE20F151D5DC31F00A56B75 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,7 +118,7 @@
 		BED998781AA09BA300F7FE5D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					BED9987F1AA09BA300F7FE5D = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -163,7 +162,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BEE20F181D5DC31F00A56B75 /* README.md in Sources */,
 				BED9988C1AA09BA300F7FE5D /* ViewController.m in Sources */,
 				BED998891AA09BA300F7FE5D /* AppDelegate.m in Sources */,
 				BEE20F161D5DC31F00A56B75 /* AB_DragableTable.m in Sources */,
@@ -199,15 +197,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -240,8 +242,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -249,6 +253,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -269,6 +274,7 @@
 				DEVELOPMENT_TEAM = 4U9NSKBV63;
 				INFOPLIST_FILE = DragableTableCells/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appliedphasor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -280,6 +286,7 @@
 				DEVELOPMENT_TEAM = 4U9NSKBV63;
 				INFOPLIST_FILE = DragableTableCells/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.appliedphasor.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
