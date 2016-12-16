@@ -47,7 +47,8 @@ typedef UIViewController<AB_DragableContainerDelegate> DragableController;
     
     UILongPressGestureRecognizer* longPressRecognizer;
     
-    UIView* draggingView;
+    UIView* draggingView; // snapshot of the cell we are moving, moved around at window level
+    UIView* markView;   // overlayed on original cell, to make it clear it is being moved
     
     // set when dragging starts
     DragableController* viewController;
@@ -116,6 +117,7 @@ const NSTimeInterval backRepeatDelay = enterDelay;
     stack = [NSMutableArray new];
     
     if(draggingView == nil) {
+        // make snapshow copy to move around in window itself
         draggingView = [view snapshotViewAfterScreenUpdates:YES];
         draggingView.layer.shadowPath = [UIBezierPath bezierPathWithRect:draggingView.bounds].CGPath;
         draggingView.layer.shadowRadius = 5;
@@ -124,12 +126,21 @@ const NSTimeInterval backRepeatDelay = enterDelay;
         
         draggingView.frame = [view.window convertRect:view.bounds fromView:view];
         [view.window addSubview:draggingView];
+        
+        // make original view look deactivated by overlaying semi-transparent view
+        markView = [[UIView alloc] initWithFrame:view.frame];
+        markView.translatesAutoresizingMaskIntoConstraints = NO;
+        markView.userInteractionEnabled = NO;
+        markView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+        markView.alpha = 0;
+        [view.superview addSubview:markView];
     }
     
     viewController.view.userInteractionEnabled = NO;
     [UIView animateWithDuration:.2 animations:^{
         draggingView.transform = CGAffineTransformMakeScale(0.95, 0.95);
         draggingView.center = point;
+        markView.alpha = 1;
         
         viewController.navigationItem.title = viewController.dragTitle;
         viewController.navigationItem.rightBarButtonItems = nil;
@@ -178,11 +189,15 @@ const NSTimeInterval backRepeatDelay = enterDelay;
         
         [UIView animateWithDuration:.1 animations:^{
             draggingView.alpha = 0;
+            markView.alpha = 0;
             
         } completion:^(BOOL finished) {
             viewController.view.userInteractionEnabled = YES;
+            
             [draggingView removeFromSuperview];
             draggingView = nil;
+            [markView removeFromSuperview];
+            markView = nil;
             
             nav = nil;
             viewController = nil;
